@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "../../../styles/Pokedex.module.css";
+import { CardGrid } from "../../components/CardGrid/CardGrid";
 
 import { FiSearch } from "react-icons/fi";
 
@@ -26,21 +27,14 @@ export function Pokedex() {
 
   useEffect(() => {
     if (pokemonURL.length > 0) {
-      const fetchData = async () => {
-        const array = await pokemonURL.forEach((item) => {
-          fetch(item)
-            .then((response) => {
-              return response.json();
-            })
-            .then((pokemons) => {});
-          setPokemonList(array);
+      Promise.all(pokemonURL.map((url) => fetch(url)))
+        .then((responses) => Promise.all(responses.map((res) => res.json())))
+        .then((res) => {
+          setPokemonList(res);
         });
-      };
-      fetchData();
     }
   }, [pokemonURL]);
   console.log(pokemonList);
-
   return (
     <>
       <div className={styles.container}>
@@ -50,10 +44,17 @@ export function Pokedex() {
             <FiSearch />
           </button>
         </form>
-        <div className={styles.screen}>
-          {/* {pokemonList.map((item) => {
-            <div>{item.name}</div>;
-          })} */}
+
+        <div className={styles.gridScreen}>
+          {pokemonList.map((pokemon) => {
+            return (
+              <CardGrid
+                image={pokemon.sprites.front_default}
+                name={pokemon.name}
+                types={pokemon.types}
+              />
+            );
+          })}
         </div>
       </div>
     </>
