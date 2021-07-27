@@ -19,6 +19,9 @@
   border-radius: 4px 0 0 4px;
   border: none;
   height: 30px;
+  outline: none;
+  font-family: Inter;
+  font-weight: bold;
 }
 .submitButton {
   background-color: #3d7dca;
@@ -28,9 +31,7 @@
   margin-top: 20px;
   border: none;
   border-radius: 0 4px 4px 0;
-  transition: filter 0.2s;
-}
-.submitButton:hover {
-  cursor: pointer;
-  filter: brightness(0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

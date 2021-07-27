@@ -20,9 +20,9 @@ export function Pokedex() {
               setSearch(e.target.value);
             }}
           />
-          <button type="submit" className={styles.submitButton}>
+          <div className={styles.submitButton}>
             <FiSearch />
-          </button>
+          </div>
         </form>
         <Grid />
       </div>
