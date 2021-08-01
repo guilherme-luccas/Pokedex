@@ -1,3 +1,19 @@
+
+##########$$$$$$$$$$$$$$$$$$$$$$
+
+
+Pokedex que estou fazendo para firmar fundamentos de react: context, fetch, map, filter, componentes, props...
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
