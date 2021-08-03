@@ -3,6 +3,12 @@ import styles from "../../../styles/Grid.module.css";
 import { SearchContext } from "../../SearchContext";
 import { CardGrid } from "../CardGrid/CardGrid";
 
+type MapPokemonProps = {
+  name: string;
+  sprites: string;
+  types: any;
+};
+
 export function Grid() {
   const { search, zoomIn, ZoomIn, pokemonSelected } = useContext(SearchContext);
 
@@ -40,14 +46,14 @@ export function Grid() {
     return (
       <div className={styles.gridScreen}>
         {pokemonList
-          .filter((val) => {
+          .filter((val: any) => {
             if (search == "") {
               return val;
             } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
               return val;
             }
           })
-          .map((pokemon, index) => {
+          .map((pokemon: any, index) => {
             return (
               <div
                 data-index={index}
