@@ -16,7 +16,7 @@ export function Grid() {
       })
       .then((lista) => {
         const data = lista.results;
-        let array = [];
+        let array: any = [];
         Promise.all(
           data.map((item) => {
             array.push(item.url);
