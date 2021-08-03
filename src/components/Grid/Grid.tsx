@@ -18,7 +18,7 @@ export function Grid() {
         const data = lista.results;
         let array: any = [];
         Promise.all(
-          data.map((item) => {
+          data.map((item: any) => {
             array.push(item.url);
           })
         );
@@ -30,7 +30,7 @@ export function Grid() {
     if (pokemonURL.length > 0) {
       Promise.all(pokemonURL.map((url) => fetch(url)))
         .then((responses) => Promise.all(responses.map((res) => res.json())))
-        .then((res) => {
+        .then((res: any) => {
           setPokemonList(res);
         });
     }
