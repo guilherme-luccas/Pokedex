@@ -2,7 +2,13 @@ import { useContext } from "react";
 import styles from "../../../styles/CardGrid.module.css";
 import { SearchContext } from "../../SearchContext";
 
-export function CardGrid({ image, name, types }) {
+type Props = {
+  image: string;
+  name: string;
+  types: string[];
+};
+
+export function CardGrid({ image, name, types }: Props) {
   const { zoomIn, ZoomIn } = useContext(SearchContext);
 
   return (
