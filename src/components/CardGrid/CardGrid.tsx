@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import styles from "../../../styles/CardGrid.module.css";
 import { SearchContext } from "../../SearchContext";
+import Image from "next/image";
 
 type Props = {
-  image: string;
+  image: any;
   name: string;
   types: any;
 };
@@ -13,7 +14,7 @@ export function CardGrid({ image, name, types }: Props) {
 
   return (
     <div className={styles.container}>
-      <img src={image} />
+      <Image src={image} />
       <div>
         <h3>{name}</h3>
 
