@@ -5,7 +5,7 @@ import { SearchContext } from "../../SearchContext";
 type Props = {
   image: string;
   name: string;
-  types: [{}];
+  types: any;
 };
 
 export function CardGrid({ image, name, types }: Props) {
