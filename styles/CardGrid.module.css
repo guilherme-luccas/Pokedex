@@ -3,6 +3,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  cursor: pointer;
 }
 .container div h3 {
   text-transform: capitalize;

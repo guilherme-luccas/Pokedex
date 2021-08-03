@@ -6,7 +6,7 @@ import { FiSearch } from "react-icons/fi";
 import { SearchContext } from "../../SearchContext";
 
 export function Pokedex() {
-  const { setSearch } = useContext(SearchContext);
+  const { setSearch, zoomIn } = useContext(SearchContext);
 
   return (
     <>
@@ -24,6 +24,7 @@ export function Pokedex() {
             <FiSearch />
           </div>
         </form>
+
         <Grid />
       </div>
     </>

@@ -4,7 +4,7 @@ import { SearchContext } from "../../SearchContext";
 import { CardGrid } from "../CardGrid/CardGrid";
 
 export function Grid() {
-  const { search } = useContext(SearchContext);
+  const { search, zoomIn, ZoomIn, pokemonSelected } = useContext(SearchContext);
 
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonURL, setPokemonURL] = useState([]);
@@ -36,25 +36,47 @@ export function Grid() {
     }
   }, [pokemonURL]);
 
+  function MapPokemon() {
+    return (
+      <div className={styles.gridScreen}>
+        {pokemonList
+          .filter((val) => {
+            if (search == "") {
+              return val;
+            } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
+              return val;
+            }
+          })
+          .map((pokemon, index) => {
+            return (
+              <div
+                data-index={index}
+                onClick={() => {
+                  ZoomIn(pokemon);
+                }}
+              >
+                <CardGrid
+                  key={index}
+                  image={pokemon.sprites.front_default}
+                  name={pokemon.name}
+                  types={pokemon.types}
+                />
+              </div>
+            );
+          })}
+      </div>
+    );
+  }
+
   return (
-    <div className={styles.gridScreen}>
-      {pokemonList
-        .filter((val) => {
-          if (search == "") {
-            return val;
-          } else if (val.name.toLowerCase().includes(search.toLowerCase())) {
-            return val;
-          }
-        })
-        .map((pokemon) => {
-          return (
-            <CardGrid
-              image={pokemon.sprites.front_default}
-              name={pokemon.name}
-              types={pokemon.types}
-            />
-          );
-        })}
+    <div>
+      {zoomIn ? (
+        <div onClick={ZoomIn} className={styles.gridScreen}>
+          {pokemonSelected.name}
+        </div>
+      ) : (
+        <MapPokemon />
+      )}
     </div>
   );
 }
