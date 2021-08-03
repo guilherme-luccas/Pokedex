@@ -56,6 +56,7 @@ export function Grid() {
           .map((pokemon: any, index) => {
             return (
               <div
+                key={index}
                 data-index={index}
                 onClick={() => {
                   ZoomIn(pokemon);
