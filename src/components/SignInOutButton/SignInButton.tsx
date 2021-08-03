@@ -13,19 +13,6 @@ export function SignInButton() {
             className={styles.buttonLogin}
             onClick={() => signIn("github")}
           >
-            {loading ? (
-              <Spinner
-                radius={20}
-                color={"#000000"}
-                stroke={2}
-                visible={true}
-              />
-            ) : (
-              <img
-                src="https://marcas-logos.net/wp-content/uploads/2020/03/GITHUB-LOGO.png"
-                alt=""
-              />
-            )}
             Login with Github
           </button>
         </>

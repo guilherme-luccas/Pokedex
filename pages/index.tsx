@@ -5,6 +5,7 @@ import styles from "../styles/Home.module.css";
 import { SignInButton } from "../src/components/SignInOutButton/SignInButton";
 import { Pokedex } from "../src/components/Pokedex/Pokedex";
 import Spinner from "react-spinner-material";
+import pokemonLogo from "../public/pokemonLogo.png";
 
 export default function Home() {
   const [session, loading] = useSession();
@@ -18,10 +19,7 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <img
-          src="https://cdn2.bulbagarden.net/upload/archive/4/4b/20100413180610%21Pok%C3%A9dex_logo.png"
-          alt=""
-        />
+        <Image src={pokemonLogo} alt="Pokemon Logo" />
 
         {session && (
           <>
