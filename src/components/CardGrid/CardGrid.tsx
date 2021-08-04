@@ -14,7 +14,7 @@ export function CardGrid({ image, name, types }: Props) {
 
   return (
     <div className={styles.container}>
-      <Image className={styles.imagem} src={image} />
+      <Image width={100} height={100} src={image} />
       <div>
         <h3>{name}</h3>
 
