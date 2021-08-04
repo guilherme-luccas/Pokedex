@@ -12,8 +12,8 @@ type MapPokemonProps = {
 export function Grid() {
   const { search, zoomIn, ZoomIn, pokemonSelected } = useContext(SearchContext);
 
-  const [pokemonList, setPokemonList] = useState([]);
-  const [pokemonURL, setPokemonURL] = useState([]);
+  const [pokemonList, setPokemonList] = useState([] as any);
+  const [pokemonURL, setPokemonURL] = useState([] as any);
 
   useEffect(() => {
     fetch("https://pokeapi.co/api/v2/pokemon?limit=151&offset=0")
