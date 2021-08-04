@@ -20,7 +20,7 @@ export function Grid() {
       .then((response) => {
         return response.json();
       })
-      .then((lista) => {
+      .then((lista: any) => {
         const data = lista.results;
         let array: any = [];
         Promise.all(
@@ -34,8 +34,10 @@ export function Grid() {
 
   useEffect(() => {
     if (pokemonURL.length > 0) {
-      Promise.all(pokemonURL.map((url) => fetch(url)))
-        .then((responses) => Promise.all(responses.map((res) => res.json())))
+      Promise.all(pokemonURL.map((url: any) => fetch(url)))
+        .then((responses) =>
+          Promise.all(responses.map((res: any) => res.json()))
+        )
         .then((res: any) => {
           setPokemonList(res);
         });
