@@ -55,7 +55,7 @@ export function Grid() {
               return val;
             }
           })
-          .map((pokemon: any, index) => {
+          .map((pokemon: any, index: any) => {
             return (
               <div
                 key={index}
