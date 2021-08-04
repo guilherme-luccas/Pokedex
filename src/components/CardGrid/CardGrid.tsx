@@ -19,7 +19,7 @@ export function CardGrid({ image, name, types }: Props) {
         <h3>{name}</h3>
 
         <div className={styles.types}>
-          {types.map(({ tipo, index }: any) => {
+          {types.map((tipo: any, index) => {
             return <p key={index}> {tipo.type.name}</p>;
           })}
         </div>
